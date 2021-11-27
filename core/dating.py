@@ -14,8 +14,11 @@ def xuan_yx():
         pyautogui.click(x)
     elif x := pyautogui.locateOnScreen('img/yx/sn.png', grayscale=True):
         pyautogui.click(x)
-    pyautogui.click(pyautogui.locateOnScreen('img/yx/ok1.png', grayscale=True))
-    time.sleep(20)
+        
+    # 确定英雄
+    if x:= pyautogui.locateOnScreen('img/ok2.png'):
+        pyautogui.click(x)
+    time.sleep(1)
     
 if __name__ == '__main__':
     xuan_yx()
