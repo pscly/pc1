@@ -43,13 +43,15 @@ if __name__ == '__main__':
                 pyautogui.click(x)
                 print('再玩一次')
                 time.sleep(6)
-                ks = 1 
                 # 单机左键
                 pyautogui.click(button='left')
         
         
-        
-        elif ks == 0 and (x := pyautogui.locateOnScreen('img/start1.png')):
+        elif (x := pyautogui.locateOnScreen('img/zailai.png', grayscale=True)):
+            pyautogui.click(x)
+            print('点击再玩一次')
+            
+        elif x := pyautogui.locateOnScreen('img/start1.png'):
             # 到图片中心位置点击左键
             pyautogui.click(x)
             print('寻找对局')
@@ -57,7 +59,7 @@ if __name__ == '__main__':
             # 如果没有找到对局，就一直等待
             while 1:
                 """这里是一直循环等待确认对局, """
-                if ks == 0 and (x := pyautogui.locateOnScreen('img/jieshou1.png', grayscale=True)):
+                if x := pyautogui.locateOnScreen('img/jieshou1.png', grayscale=True):
                     pyautogui.click(x)
                     print('确认对局')
 
