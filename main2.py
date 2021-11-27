@@ -38,18 +38,19 @@ if __name__ == '__main__':
         
         
             # 再玩一次 
-            if x := pyautogui.locateOnScreen('img/zailai.png'):
+            if x := pyautogui.locateOnScreen('img/re1.png'):
                 # 到图片中心位置点击左键
                 pyautogui.click(x)
                 print('再玩一次')
-                time.sleep(6)
+                time.sleep(3)
                 # 单机左键
                 pyautogui.click(button='left')
         
         
-        elif (x := pyautogui.locateOnScreen('img/zailai.png', grayscale=True)):
+        elif x := pyautogui.locateOnScreen('img/re1.png', grayscale=True):
             pyautogui.click(x)
             print('点击再玩一次')
+            time.sleep(3)
             
         elif x := pyautogui.locateOnScreen('img/start1.png'):
             # 到图片中心位置点击左键
