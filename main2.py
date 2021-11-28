@@ -58,8 +58,11 @@ if __name__ == '__main__':
             print('寻找对局')
 
             # 如果没有找到对局，就一直等待
-            while 1:
+            dd = 0
+            while dd < 150:
                 """这里是一直循环等待确认对局, """
+                time.sleep(1)
+                dd += 1
                 if x := pyautogui.locateOnScreen('img/jieshou1.png', grayscale=True):
                     pyautogui.click(x)
                     print('确认对局')
