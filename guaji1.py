@@ -15,7 +15,20 @@ import pyautogui
 from ctypes import windll
 from xn_key import press, press_down, press_up, press_down_t
 from core import all1
+from pen import pen2
 
+
+def shuohua(s):
+    # 按下回车
+    press('enter')
+    # 键盘输入文字
+    pyautogui.typewrite(s, interval=0.1)
+    press('enter')
+    
+def ma():
+    p = pen2.Pen()
+    shuohua(p.start())
+    # shuohua('asdf')
 
 def shopping():
     """
@@ -64,6 +77,8 @@ def play_game():
     
 
 if __name__ == '__main__':
-    win32gui.SetForegroundWindow(win32gui.FindWindow(None, 'League of Legends (TM) Client'))
-    play_game()
+    # win32gui.SetForegroundWindow(win32gui.FindWindow(None, 'League of Legends (TM) Client'))
+    # play_game()
+    ma()
+    
     
