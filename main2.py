@@ -1,6 +1,7 @@
 # 控制windows 计算机的键盘鼠标
 # 打开steam
 
+import re
 import pyautogui
 import time
 import random
@@ -16,8 +17,10 @@ from core import all1,dating, gameing
 
 
 if __name__ == '__main__':
+    duiju = 0 # 打了几把
     m = 0   # 购买商店的东西
     ks = 0  # 点击开始
+    print('开始')
     while 1:
         # 如果鼠标在屏幕四角
         if pyautogui.position()[0] < 10 or pyautogui.position()[1] < 10 or pyautogui.position()[0] > 1920 or pyautogui.position()[1] > 1080:
@@ -34,17 +37,19 @@ if __name__ == '__main__':
             # 跳转打游戏功能处
             time.sleep(1)
             gameing.play_game()
+            # gameing.play_yunding()
             time.sleep(3)
         
         
             # 再玩一次 
-            if x := pyautogui.locateOnScreen('img/re1.png'):
-                # 到图片中心位置点击左键
-                pyautogui.click(x)
-                print('再玩一次')
-                time.sleep(3)
-                # 单机左键
-                pyautogui.click(button='left')
+            while 1:
+                if x := pyautogui.locateOnScreen('img/re1.png'):
+                    # 到图片中心位置点击左键
+                    pyautogui.click(x)
+                    print('再玩一次')
+                    time.sleep(3)
+                    # 单机左键
+                    pyautogui.click(button='left')
         
         
         elif x := pyautogui.locateOnScreen('img/re1.png', grayscale=True):
@@ -58,11 +63,11 @@ if __name__ == '__main__':
             print('寻找对局')
 
             # 如果没有找到对局，就一直等待
-            dd = 0
-            while dd < 150:
+            for i in range(1500):  # 20分钟是1200秒
                 """这里是一直循环等待确认对局, """
-                time.sleep(1)
-                dd += 1
+                print(time.strftime("%X"), end='')
+                print(f'第{duiju}等待对局开始{i}')
+                time.sleep(1.5)
                 if x := pyautogui.locateOnScreen('img/jieshou1.png', grayscale=True):
                     pyautogui.click(x)
                     print('确认对局')
@@ -70,6 +75,7 @@ if __name__ == '__main__':
                 if x := pyautogui.locateOnScreen('img/xz1.png', grayscale=True):
                     dating.xuan_yx()
                     print('英雄选择完毕')
+                    duiju += 1
                     # 选好了英雄就该跳出循环了
                     break
                         
